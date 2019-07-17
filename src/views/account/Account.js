@@ -115,7 +115,7 @@ class Account extends React.Component {
                                     align="top"
                                     thumb={(
                                         this.props.token ?
-                                            <img src={this.props.userInfo.avatarUrl} style={{
+                                            <img src={''} style={{
                                                 borderRadius: '50%',
                                                 position: 'realtive',
                                                 width: '50px',
@@ -129,8 +129,8 @@ class Account extends React.Component {
                                             }}/>
                                     )}
                                     multipleLine>
-                                    {this.props.userInfo.nickname}
-                                    <Brief>lv{this.props.userInfo.userType}</Brief>
+                                    {''}
+                                    <Brief>lv{''}</Brief>
                                 </Item>
                             </List>
                             </div>)

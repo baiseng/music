@@ -6,12 +6,10 @@ export default{
         return(dispatch)=>{
             axios.get('http://swmonk.top:3000/playlist/detail?id='+id)
                 .then(({data})=>{
-                    console.log(data);
                     dispatch({
                         type:GET_MUSIC_LIST_DETAIL,
                         payload:{
-                            playlistTit:data.playlist,
-                            playlist:data.playlist.tracks
+                            playlist:data.playlist
                         }
                     })
                 })

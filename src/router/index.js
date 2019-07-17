@@ -1,11 +1,11 @@
 import account from './login'
 import Find from "../views/find/Find";
+import Account from "../views/account/Account";
 import playlist from "./playlist";
 import song from "./song";
 import VideoMain from "../views/video/VideoMain";
-import My from "../views/mine/My";
 import FriendMain from "../views/friend/FriendMain";
-import Account from "../views/account/Account";
+import My from "../views/mine/My";
 
 export default [
     ...account,

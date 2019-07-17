@@ -220,6 +220,22 @@ footer  .b-bottom{
     display: inline-block;
     line-height:36px;
 }
+/*歌单详情页面*/
+.music-list-detail-icon{
+    height:50px;
+    width:100%;
+    display:flex;
+    justifyContent:space-around;
+    margin:20px 0;
+    text-align: center;
+    color:#fff;
+}
+
+.music-list-detail-icon i{
+    display: inline-block;
+    width:50px;
+    font-size:28px;
+}
 /***********************************************帐号页面*********************************/
 .account-top{
     display: flex;

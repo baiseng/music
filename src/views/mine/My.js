@@ -9,17 +9,17 @@ import {    bindActionCreators
 //ui
 import {List,Grid} from 'antd-mobile';
 //歌单组件
-import MusicList from '../../components/my_component/MusicList'
+import MusicList from '../../components/mine/MusicList'
 //头部组件
-import {headerHandler} from "../../components/my_component/Header"
-import HeadLowCom from '../../components/my_component/Header'
+import {headerHandler} from "../../components/mine/Header"
+import HeadLowCom from '../../components/mine/Header'
 //样式
 import styled from 'styled-components'
 import userCreators from "../../store/actionCreators/userCreator";
+import TabBar from "../../components/common/TabBar";
 //组件使用
 
 import {withRouter} from 'react-router-dom'
-import TabBar from "../../components/common/TabBar";
 
 const Head = headerHandler({Ricon:'icon-icon-test2',text:'我的音乐',Licon:'icon-menu'})(HeadLowCom);
 const My_carI = styled.i`
@@ -32,7 +32,7 @@ font-size:22px;
 color:white;
 line-height:40px;
 text-align:center
-`
+`;
 const my_carouselArr = [
     {
         icon:<My_carI className={'iconfont icon-Piano'}/>,
@@ -56,7 +56,7 @@ const my_carouselArr = [
         icon:<My_carI className={'iconfont icon-xihuan'}/>,
         text:'私藏推荐'
     },
-]
+];
 const Item = List.Item;
 
 
@@ -134,10 +134,10 @@ class My extends React.Component {
                 toPath:'/myCollections',
                 num:data.subPlaylistCount
             },
-                ]
+                ];
             this.setState({
                 listArr
-            })
+            });
             this.props.getMList(this.props.userInfo.userId)
         })
     }
@@ -155,5 +155,5 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({...userCreators},dispatch)
 }
 
-export default withRouter (connect(mapStateToProps, mapDispatchToProps)(My));
+export default withRouter( connect(mapStateToProps, mapDispatchToProps)(My));
 
