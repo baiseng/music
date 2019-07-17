@@ -67,9 +67,6 @@ class TopMusicList extends React.Component{
     componentWillMount() {
         this.props.getMusicList()
     }
-    componentWillReceiveProps(nextProps, nextContext) {
-        console.log(this.props.musicList);
-    }
 }
 function mapStateToProps(state){
     return {

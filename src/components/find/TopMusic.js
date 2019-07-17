@@ -8,27 +8,19 @@ class TopMusic extends React.Component{
     constructor(){
         super();
         this.state={
-            recommend:[],//获取数据列表
-            listen:[]//收听人数单位万
+            recommend:[]//获取数据列表
         }
     }
     componentWillMount() {
         this.getTopMusicMenu.bind(this)();
     }
     getTopMusicMenu(){
-        axios.get("http://swmonk.top:3000/personalized")
+        axios.get("/personalized")
             .then(({data})=>{
-                for(let i=0;i<6;i++){
-                    this.setState({
-                        recommend:this.state.recommend.concat(data.result[i])
-                    },function(){
-                        this.state.recommend.map((v,i)=>{
-                            this.setState({
-                                listen:this.state.listen.concat(parseInt(v.playCount / 10000))
-                            })
-                        })
-                    })
-                }
+                let arr = data.result.slice(0,6);
+                this.setState({
+                    recommend:arr
+                })
             })
     }
     render(){
@@ -57,7 +49,10 @@ class TopMusic extends React.Component{
                                             <img src={v.picUrl} alt="" style={{width:'100%'}}/>
                                             <p className='top-music-menu-name'>{v.name}</p>
                                             <div style={{color:'#fff',position:'absolute',top:0,right:0}}>
-                                                <i className='iconfont'>&#xe640;</i>{this.state.listen[i]}万
+                                                <i className='iconfont'>&#xe640;</i>
+                                                {
+                                                    v.playCount>100000000?((v.playCount/100000000).toFixed(1)+'亿'):(v.playCount>100000 && v.playCount<100000000?(parseInt(v.playCount/10000)+'万'):parseInt(v.playCount))
+                                                }
                                             </div>
                                         </NavLink>
                                     </li>

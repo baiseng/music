@@ -14,13 +14,10 @@ class AnchorRadio extends React.Component{
     getTopMusic(){
         axios.get("http://swmonk.top:3000/personalized/djprogram")
             .then(({data})=>{
-                // console.log(data);
-                for(let i=0;i<6;i++){
-                    this.setState({
-                        anchorList:this.state.anchorList.concat(data.result[i])
-                    })
-                }
-                // console.log(this.state.anchorList)
+                let arr = data.result.slice(0, 6);
+                this.setState({
+                    anchorList:arr
+                })
             })
     }
     render(){

@@ -14,13 +14,10 @@ class TopSong extends React.Component{
     getTopMusic(){
         axios.get("http://swmonk.top:3000/personalized/newsong?num="+Math.random())
             .then(({data})=>{
-                // console.log(data);
-                for(let i=0;i<6;i++){
-                    this.setState({
-                        playlists:this.state.playlists.concat(data.result[i].song.album)
-                    })
-                }
-                // console.log(this.state.playlists)
+                let arr = data.result.slice(0, 6);
+                this.setState({
+                    playlists:arr
+                })
             })
     }
     render(){
@@ -46,8 +43,8 @@ class TopSong extends React.Component{
                                                 }
                                             }
                                         } key={i}>
-                                            <img src={v.picUrl} alt="" style={{width:'100%'}}/>
-                                            <p className='top-music-menu-name'>{v.name}</p>
+                                            <img src={v.song.album.picUrl} alt="" style={{width:'100%'}}/>
+                                            <p className='top-music-menu-name'>{v.song.album.name}</p>
                                         </NavLink>
                                     </li>
                                 )

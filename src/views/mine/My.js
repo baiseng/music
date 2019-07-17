@@ -9,14 +9,14 @@ import {    bindActionCreators
 //ui
 import {List,Grid} from 'antd-mobile';
 //歌单组件
-import MusicList from '../components/mine/MusicList'
+import MusicList from '../../components/mine/MusicList'
 //头部组件
-import {headerHandler} from "../components/mine/Header"
-import HeadLowCom from '../components/mine/Header'
+import {headerHandler} from "../../components/mine/Header"
+import HeadLowCom from '../../components/mine/Header'
 //样式
 import styled from 'styled-components'
-import userCreators from "../store/actionCreators/userCreator";
-import TabBar from "../components/common/TabBar";
+import userCreators from "../../store/actionCreators/userCreator";
+import TabBar from "../../components/common/TabBar";
 //组件使用
 
 import {withRouter} from 'react-router-dom'

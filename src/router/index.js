@@ -4,7 +4,7 @@ import Account from "../views/account/Account";
 import playlist from "./playlist";
 import song from "./song";
 import VideoMain from "../views/video/VideoMain";
-import My from "../views/My";
+import My from "../views/mine/My";
 import Dongtai from "../views/friend/Dongtai";
 import details from './details'
 
