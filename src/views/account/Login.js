@@ -1,26 +1,62 @@
 import React from 'react';
-import {withRouter,NavLink} from "react-router-dom"
-class Login extends React.Component{
-    render(){
-        return(
-            <div className='login-page'>
-                <div className='login-top'>
-                    <div>
-                        <i className='iconfont' style={{fontSize:30}} onClick={()=>this.props.history.go(-1)}>&#xe6a0;</i>
-                    </div>
-                    <div style={{fontSize:20}}>登录</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                </div>
-                <div style={{textAlign:'center'}}>
-                    <img style={{height:'150px',margin:50}} src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562843949228&di=e9ad585108edd7f9f4be4bb7291d409c&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160726%2F0041955d377a46d7ab272d1030271197_th.png" alt=""/>
-                </div>
-                <div>
-                    <NavLink to={'/login/phone'} exact className='navlink-login-btn' style={{display:'block'}}>手机号登录</NavLink>
-                    <NavLink to={'/login/email'} exact className='navlink-login-btn' style={{display:'block'}}>邮箱登录</NavLink>
-                    <NavLink to={'/login/register'} exact className='navlink-login-btn' style={{display:'block'}}>注册</NavLink>
-                </div>
+//redux
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import userCreators from '../../store/actionCreators/userCreator'
+import {withRouter} from 'react-router-dom'
+
+import { Flex,Button,Checkbox} from 'antd-mobile';
+import {log_reg} from '../../my_component/log_reg'
+const AgreeItem = Checkbox.AgreeItem;
+const iconArr = [
+    {iconName:'icon-github-fill'},
+    {iconName:'icon-weibo'},
+    {iconName:'icon-QQ'},
+    {iconName:'icon-wechat-fill'},
+]
+class Login extends React.Component {
+    constructor(){
+        super();
+        this.state ={
+
+        }
+    }
+    render() {
+        return (
+            <div className={'winHeight'} style={{background:'rgb(225, 20, 20)',position:'absolute',top:'0'}}>
+                <Flex direction={'column'} justify={'center'} >
+                    <Flex.Item style={{color:'white',padding:"160px 0 200px"}}>
+                        <p style={{width:'80px',height:'80px',background:'red',borderRadius:'50%',textAlign:'center',lineHeight:'80px'}}>
+                            <i className={'iconfont icon-CN_NetEasemusic-copy'} style={{fontSize:'50px',}} />
+                        </p>
+
+
+                    </Flex.Item>
+                    <Flex.Item style={{color:'white'}}>
+                        <Button style={{borderRadius:'30px',width:'320px',color:'red'}} onClick={log_reg.bind(this,this.props.getUserInfo)}>手机号登陆</Button>
+                    </Flex.Item>
+                    <Flex.Item style={{flex:'4',marginTop:'30px'}}>
+                        {
+                            iconArr.map((v,i)=>{
+                                return(
+                                    <i key={i}className={'iconfont '+v.iconName} style={{fontSize:'25px',color:'white',border:'1px solid #ccc',borderRadius:'50%',margin:'20px 15px '}}  />
+
+                                )
+                            })
+                        }
+                    </Flex.Item>
+                    <Flex.Item style={{flex:'4'}} className={'my_add '}>
+                        <AgreeItem data-seed="logId" onChange={e => console.log('checkbox', e)}>
+                            同意《用户协议》和《隐私政策》
+                        </AgreeItem>
+                    </Flex.Item>
+                </Flex>
             </div>
         )
     }
 }
-export default withRouter(Login);
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({...userCreators},dispatch)
+}
+export default  withRouter(connect(()=>{return{}},mapDispatchToProps)(Login));

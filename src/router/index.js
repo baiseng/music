@@ -1,18 +1,16 @@
 import account from './login'
 import Find from "../views/find/Find";
-import Account from "../views/account/Account";
 import playlist from "./playlist";
 import song from "./song";
 import VideoMain from "../views/video/VideoMain";
-import My from "../views/My";
-import Dongtai from "../views/friend/Dongtai";
-import details from './details'
+import My from "../views/mine/My";
+import FriendMain from "../views/friend/FriendMain";
+import Account from "../views/account/Account";
 
 export default [
     ...account,
     ...playlist,
     ...song,
-    ...details,
     {
         path:"/",
         exact:true,
@@ -37,7 +35,7 @@ export default [
     {
         path:"/friend",
         exact:true,
-        component:Dongtai,
+        component:FriendMain,
         nameStr:"朋友",
         isAuthorization:true
     },

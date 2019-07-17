@@ -18,9 +18,9 @@ export default {
                                 uerInfo: data.profile,
                                 token: localStorage.token
                             }
-                        })
-                        this.getSubCount();
-                        rm.props.history.push('/count')
+                        });
+                        rm.props.getSubCount();
+                        rm.props.history.push('/account')
                     }).catch((msg)=>{console.log(msg)});
                 }
             })
