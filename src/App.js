@@ -13,7 +13,6 @@ import MyDj from "./router/my_router/MyDj";
 import MyCollections from "./router/my_router/MyCollections";
 import LocalMusic from "./router/my_router/LocalMusic";
 
-require('./css/public.css');
 function App() {
   return (
       <Router>

@@ -29,7 +29,7 @@ class TopMusic extends React.Component{
                 <NavLink to={'/top/playlist'} exact style={{display:'block'}}>
                     <div className='top-music-menu-tit'>
                         推荐歌单
-                        <i className='iconfont'>&#xe63b;</i>
+                        <i className='iconfont'>&#xe634;</i>
                     </div>
                 </NavLink>
                 <div style={{overflow:'hidden'}}>
@@ -37,7 +37,7 @@ class TopMusic extends React.Component{
                         {
                             this.state.recommend.map((v,i)=>{
                                 return (
-                                    <li style={{width:'30%',height:'190px',float:'left',margin:'8px 6px',position:'relative'}} key={i}>
+                                    <li style={{width:'29%',height:'190px',float:'left',margin:'8px 2%',position:'relative'}} key={i}>
                                         <NavLink to={
                                             {
                                                 pathname:'/playlist/detail',
