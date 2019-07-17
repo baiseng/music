@@ -9,10 +9,10 @@ import {    bindActionCreators
 //ui
 import {List,Grid} from 'antd-mobile';
 //歌单组件
-import MusicList from '../../my_component/MusicList'
+import MusicList from '../../components/my_component/MusicList'
 //头部组件
-import {headerHandler} from "../../my_component/Header"
-import HeadLowCom from '../../my_component/Header'
+import {headerHandler} from "../../components/my_component/Header"
+import HeadLowCom from '../../components/my_component/Header'
 //样式
 import styled from 'styled-components'
 import userCreators from "../../store/actionCreators/userCreator";

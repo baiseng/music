@@ -6,8 +6,8 @@ import {List, Grid, Switch, Button} from 'antd-mobile';
 import styled from "styled-components";
 
 //头
-import {headerHandler} from "../../my_component/Header"
-import LowCom from '../../my_component/Header'
+import {headerHandler} from "../../components/my_component/Header"
+import LowCom from '../../components/my_component/Header'
 import userCreators from "../../store/actionCreators/userCreator";
 
 import {withRouter} from 'react-router-dom'

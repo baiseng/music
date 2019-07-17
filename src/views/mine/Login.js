@@ -3,7 +3,6 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import userCreators from '../../store/actionCreators/userCreator'
-import {withRouter} from 'react-router-dom'
 
 import { Flex,Button,Checkbox} from 'antd-mobile';
 import {log_reg} from '../../components/my_component/log_reg'
@@ -13,7 +12,7 @@ const iconArr = [
     {iconName:'icon-weibo'},
     {iconName:'icon-QQ'},
     {iconName:'icon-wechat-fill'},
-]
+];
 class Login extends React.Component {
     constructor(){
         super();
@@ -59,4 +58,4 @@ class Login extends React.Component {
 function mapDispatchToProps(dispatch){
     return bindActionCreators({...userCreators},dispatch)
 }
-export default  withRouter(connect(()=>{return{}},mapDispatchToProps)(Login));
+export default connect(()=>{return{}},mapDispatchToProps)(Login);
