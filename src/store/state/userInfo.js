@@ -5,5 +5,5 @@ export default {
     },
     token: localStorage.token,
     musicList:[],
-    subcount:{}
+    subcount:localStorage.subcount?JSON.parse(localStorage.subcount):{}
 }

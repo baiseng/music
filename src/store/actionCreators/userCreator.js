@@ -15,7 +15,7 @@ export default {
                         dispatch({
                             type: 'CHANGE_USERINFO_TOKEN',
                             payload: {
-                                uerInfo: data.profile,
+                                userInfo: data.profile,
                                 token: localStorage.token
                             }
                         });
@@ -59,6 +59,7 @@ export default {
     getSubCount(){
         return (dispatch)=>{
             axios.get('http://swmonk.top:3000/user/subcount').then(({data}) => {
+                localStorage.subcount = JSON.stringify(data);
                 dispatch({
                     type:'CHANGE_SUB_COUNT',
                     payload:{

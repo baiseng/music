@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from 'antd-mobile';
+import { Flex,Toast } from 'antd-mobile';
 import ComDynamicsCart from "../components/ComDynamicsCart";
 import axios from "axios";
 
@@ -22,6 +22,8 @@ class Dynamics extends React.Component {
                 v.json=JSON.parse(v.json);
             });
             this.setState(data)
+        }).catch(()=>{
+            Toast.info('没有登录，无权获取动态')
         });
     }
 

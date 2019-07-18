@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
-import {List,WingBlank} from 'antd-mobile';
+import {List} from 'antd-mobile';
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -42,12 +42,12 @@ class ListCom extends React.Component {
             }}>
                 {
                     this.props.arr.map((v, index) => {
-
                         return (
                             <List key={index} className="my-list">
                                 <Item extra={(<i className={'iconfont icon-moreif'}/>)}
                                       thumb={(<img src={v[this.state.imgUrl]}
                                                    style={this.state.thumb_style}/>)}
+                                      onClick={()=>{this.props.history.push({pathname:'/ml_detail/',state:{id:v.id}})}}
                                       multipleLine>
 
                                     {v[this.state.title]}
@@ -75,10 +75,11 @@ class ListCom extends React.Component {
                         )
                     })
                 }
-
-
             </div>
         )
+    }
+    detail(id){
+
     }
 }
 
