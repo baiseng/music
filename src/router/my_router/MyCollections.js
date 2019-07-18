@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+// ui
+import { Toast, List } from 'antd-mobile';
 //头部组件
 import {headerHandler} from "../../components/mine/Header"
 import LowCom from '../../components/mine/Header'
@@ -9,7 +11,9 @@ import LowCom from '../../components/mine/Header'
 import {Tabs,} from 'antd-mobile';
 import ListCom from '../../components/mine/List'
 import userCreator from "../../store/actionCreators/userCreator";
-
+import VideoList from '../../views/video/page/VideoList';
+const Item = List.Item;
+const Brief = Item.Brief;
 const Head = headerHandler({Ricon:'icon-icon-test2',text:'我的收藏',Licon:'icon-back'})(LowCom);
 const tabs = [
     {title: '专辑'},
@@ -22,7 +26,8 @@ class MyCollections extends React.Component {
     constructor(){
         super();
         this.state={
-            singerList:[]
+            singerList:[],
+            album_sublist:[]
         }
     }
     render() {
@@ -41,15 +46,25 @@ class MyCollections extends React.Component {
                     tabBarUnderlineStyle={{border: '2px solid red'}}
 
                 >
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        height: '250px',
-                        backgroundColor: '#fff'
-                    }}>
-                        没有找到本地音乐哦
-                    </div>
+                    {
+                        // 专辑列表
+                            this.state.album_sublist.map((v, i) => {
+                               return(
+                                    <Item
+                                    key={i}
+                                    extra={<i className={'iconfont icon-moreif'} style={{marginTop:'20px',display:'inline-block'}}/>} 
+                                    align="top" 
+                                    thumb={<img src={this.state.album_sublist[i].picUrl} style={{width:'70px',height:'70px'}}/>}
+                                    multipleLine>
+                                    {this.state.album_sublist[i].name} 
+                                    <Brief>
+                                    {this.state.album_sublist[i].artists[0].name} 
+                                    <span>{this.state.album_sublist[i].size}首</span>
+                                    </Brief>
+                            </Item>
+                               )
+                            })
+                    }
 
                     <div style={{
                         display: 'flex',
@@ -66,16 +81,9 @@ class MyCollections extends React.Component {
                         />
 
                     </div>
-
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        height: '250px',
-                        backgroundColor: '#fff'
-                    }}>
-                        Content of third tab
-                    </div>
+                    
+                    <VideoList tabId={60101}/>
+                    
                     <div style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -90,12 +98,20 @@ class MyCollections extends React.Component {
         )
     }
     componentWillMount() {
+        // 获取专辑列表
+        axios.get('/album/sublist').then(({data}) => {
+            console.log(data)
+            this.setState({
+                album_sublist: data.data,
+            })
+        })
+
+        // 获取歌手列表
         axios.get('/artist/sublist').then(({data}) => {
             this.setState({
                 singerList: data.data,
             })
         })
-
     }
 
 }
