@@ -15,20 +15,24 @@ import LocalMusic from "./router/my_router/LocalMusic";
 
 function App() {
   return (
-      <Router>
-        {
-          router.map((v,i)=>{
-            return (
-                <Route key={i} exact={v.exact} path={v.path} render={()=><GuardRoute {...v}/>}/>
-            )
-          })
-        }
-          <Route path={'/recentPlay'} component={RecentPlay}/>
-          <Route path={'/downLoadManger'} component={DownLoadManager}/>
-          <Route path={'/myDj'} component={MyDj}/>
-          <Route path={'/myCollections'} component={MyCollections}/>
-          <Route path={'/localMusic'} component={LocalMusic}/>
-      </Router>
+      <div style={{height:'100%'}}>
+          <Router>
+              {
+                  router.map((v,i)=>{
+                      return (
+                          <Route key={i} exact={v.exact} path={v.path} render={()=><GuardRoute {...v}/>}/>
+                      )
+                  })
+              }
+              <Route path={'/recentPlay'} component={RecentPlay}/>
+              <Route path={'/downLoadManger'} component={DownLoadManager}/>
+              <Route path={'/myDj'} component={MyDj}/>
+              <Route path={'/myCollections'} component={MyCollections}/>
+              <Route path={'/localMusic'} component={LocalMusic}/>
+          </Router>
+          <audio src=""></audio>
+      </div>
+
   );
 }
 

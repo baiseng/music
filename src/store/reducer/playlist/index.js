@@ -18,7 +18,7 @@ function changeMusicList(state=musicList,action) {
 function changeMusicListDetail(state=musicListDetail,action){
     state = JSON.parse(JSON.stringify(state));
     if(action.type===GET_MUSIC_LIST_DETAIL){
-        state.musicListDetailTit=action.payload.playlistTit;
+        // state.musicListDetailTit=action.payload.playlistTit;
         state.musicListDetail=action.payload.playlist
     }
     return state;

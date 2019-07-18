@@ -244,21 +244,80 @@ footer  .b-bottom{
     width:100%;
     display:flex;
     justify-content: space-around;
-    margin:20px 0;
+    margin:10px 0 20px 0;
     text-align: center;
     color:#fff;
-    background:red;
 }
 .music-list-detail-icon div{
-    background:green;
+
 }
 .music-list-detail-icon i{
     display: inline-block;
     width:50px;
     font-size:28px;
 }
+/*中间的播放全部和收藏*/
 .music-list-detail-playAll{
+    overflow:hidden;
+    border-radius: 15px 15px 0 0;
+}
+.music-list-detail-playAll>div {
+    line-height:30px;
+    font-size:16px;
+    color:#000;
+    height:30px;
+    padding:5px;
+}
+.music-list-detail-playAll>div:nth-child(1){
+    float:left;
 
+}
+.music-list-detail-playAll>div:nth-child(1) i{
+    float: left;
+    margin:0 5px;
+}
+.music-list-detail-playAll>div:nth-child(1) p{
+    float: left;
+}
+.music-list-detail-playAll>div:nth-child(1) p:nth-child(3){
+    color:#aaa;
+}
+.music-list-detail-playAll>div:nth-child(2){
+    float:right;
+    background:#f00C0C;
+    color:#fff;
+}
+/*播放列表*/
+.music-list-detail-list{
+    height:40px;
+    margin:3px;
+}
+.music-list-detail-inner{
+    float:left;
+    border-bottom:1px solid #999;
+    width:90%;
+    height:100%;
+}
+.music-list-detail-inner div{
+    float:left;
+}
+.music-list-detail-inner>div:nth-child(1){
+    width:90%;
+}
+.music-list-detail-inner>div:nth-child(1) div{
+    width:100%;
+}
+.music-list-detail-inner>div:nth-child(2){
+    width:10%;
+}
+.music-list-detail-inner>div:nth-child(1) p{
+    float:left;
+
+}
+.lyric-list-box{
+    position:absolute;
+    top:200px;
+    left:0;
 }
 /***********************************************帐号页面*********************************/
 .account-top{

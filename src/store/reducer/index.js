@@ -1,8 +1,7 @@
 //孙娉
-import login from "./login";
 import video from "./video";
 import playlist from './playlist';
-
+import song from './song';
 
 //亢昭彤
 import {combineReducers} from 'redux';
@@ -16,7 +15,7 @@ import user from './userReducer'
 
 
 export default combineReducers({
-    login, video, playlist,
+    video, playlist,song,
     dongtai,fans,getSongs,
     user
 })

@@ -27,7 +27,7 @@ class FindVideo extends React.Component{
                 arr[i]=data.urls[0].url;
                 this.setState({
                     videoUrlArr:arr
-                },()=> console.log(this.state.videoUrlArr))
+                })
             })
         })
      }

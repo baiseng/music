@@ -4,15 +4,16 @@ import {connect} from 'react-redux';
 import musicListDetailCreate from '../../store/actionCreators/playlist/musicListDetail'
 import Back from "../../components/common/Back";
 import PlayBtn from "../../components/common/PlayBtn";
+import TabBar from "../../components/common/TabBar";
 class MusicListDetail extends React.Component{
     render(){
         return(
-            <div>
-                <div style={{position:'relative',height:'260px',overflow:'hidden'}}>
-                    <div style={{filter:'blur(30px)'}}>
+            <div style={{position:'relative'}}>
+                <div style={{position:'relative',height:'',overflow:'hidden'}}>
+                    <div style={{filter:'blur(30px)',position:'absolute',top:0,left:0}}>
                         <img src={this.props.musicListDetail.coverImgUrl} alt="" style={{height:'100%',width:'100%'}}/>
                     </div>
-                    <div style={{position:'absolute',top:0,left:0}}>
+                    <div style={{zIndex:'1000',position:'relative'}}>
                         <div style={{height:'40px',lineHeight:'40px',display:'flex',justifyContent:'space-between',color:'#fff'}}>
                             <Back></Back>
                             <p>歌单</p>
@@ -52,7 +53,7 @@ class MusicListDetail extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div>
+                <div style={{borderRadius:'15px 15px 0 0',background:'#fff',position:'relative',top:'-10px'}}>
                     <div className='music-list-detail-playAll'>
                         <div>
                             <i className='iconfont'>&#xe741;</i>
@@ -67,17 +68,40 @@ class MusicListDetail extends React.Component{
                         {
                             this.props.musicListDetail.tracks.map((v,i)=>{
                                 return(
-                                    <div key={i}>{v.name}</div>
+                                    <div key={i} className='music-list-detail-list' onClick={()=>this.props.history.push({
+                                        pathname:'/song/url',
+                                        state:{
+                                            songId:v.id,
+                                            songName:v.name,
+                                            songImg:v.al.picUrl
+                                        }
+                                    })}>
+                                        <div style={{float:'left',width:'10%'}}>{i}</div>
+                                        <div className='music-list-detail-inner'>
+                                            <div>
+                                                <div>
+                                                    <p>{v.name}</p>
+                                                    <p>{v.alia[0]}</p>
+                                                </div>
+                                                <div>
+                                                    {v.ar[0].name}-{v.al.name}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <i className='iconfont'>&#xe656;</i>
+                                            </div>
+                                        </div>
+                                    </div>
                                 )
                             })
                         }
                     </div>
                 </div>
+                <TabBar/>
             </div>
         )
     }
     componentWillMount() {
-        console.log(this.props);
         //接收歌单id;   1，从歌单列表点击歌单，2，从主页的推荐歌单上点击歌单
         if(this.props.location.state.musicListId){
             this.props.getMusicListDetail(this.props.location.state.musicListId);
@@ -87,7 +111,7 @@ class MusicListDetail extends React.Component{
     }
 }
 function mapStateToProps(state){
-    console.log(state.playlist.changeMusicListDetail.musicListDetail)
+    // console.log(22222,state.playlist.changeMusicListDetail.musicListDetail.tracks)
     return{
         //本个歌单详情的全部
         musicListDetail:state.playlist.changeMusicListDetail.musicListDetail
