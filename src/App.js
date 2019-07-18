@@ -14,7 +14,6 @@ import MyCollections from "./router/my_router/MyCollections";
 import LocalMusic from "./router/my_router/LocalMusic";
 import MLDetail from "./components/mine/MLDetail";
 
-require('./css/public.css');
 function App() {
   return (
       <Router>

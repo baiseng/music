@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import store from './store'
 import axios from 'axios';
 import 'antd-mobile/dist/antd-mobile.css';
-import './css/public.css'
+import './public.css'
 
 axios.defaults.withCredentials = true;
 

@@ -26,7 +26,7 @@ class AnchorRadio extends React.Component{
                 <NavLink to={'/anchor'} exact style={{display:'block'}}>
                     <div className='top-music-menu-tit'>
                         主播电台
-                        <i className='iconfont'>&#xe63b;</i>
+                        <i className='iconfont'>&#xe634;</i>
                     </div>
                 </NavLink>
                 <div style={{overflow:'hidden'}}>
@@ -34,7 +34,7 @@ class AnchorRadio extends React.Component{
                         {
                             this.state.anchorList.map((v,i)=>{
                                 return (
-                                    <li style={{width:'30%',float:'left',margin:'18px 6px'}} key={i}>
+                                    <li style={{width:'29%',float:'left',margin:'18px 2%'}} key={i}>
                                         <NavLink to={
                                             {
                                                 pathname:'',
