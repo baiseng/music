@@ -12,6 +12,7 @@ import DownLoadManager from "./router/my_router/DownloadManager";
 import MyDj from "./router/my_router/MyDj";
 import MyCollections from "./router/my_router/MyCollections";
 import LocalMusic from "./router/my_router/LocalMusic";
+import MLDetail from "./components/mine/MLDetail";
 
 require('./css/public.css');
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path={'/myDj'} component={MyDj}/>
           <Route path={'/myCollections'} component={MyCollections}/>
           <Route path={'/localMusic'} component={LocalMusic}/>
+          <Route path={'/ml_detail'} component={MLDetail}/>
       </Router>
   );
 }

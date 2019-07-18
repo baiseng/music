@@ -6,7 +6,7 @@ import userCreators from '../../store/actionCreators/userCreator'
 import {withRouter} from 'react-router-dom'
 
 import { Flex,Button,Checkbox} from 'antd-mobile';
-import {log_reg} from '../../components/my_component/log_reg'
+import {log_reg} from '../../components/mine/log_reg'
 const AgreeItem = Checkbox.AgreeItem;
 const iconArr = [
     {iconName:'icon-github-fill'},

@@ -19,8 +19,8 @@ import userCreators from "../../store/actionCreators/userCreator";
 import TabBar from "../../components/common/TabBar";
 //组件使用
 
-import {withRouter} from 'react-router-dom'
-
+import {withRouter,BrowserRouter as Router,Route,NavLink} from 'react-router-dom'
+import MLDetail  from '../../components/mine/MLDetail'
 const Head = headerHandler({Ricon:'icon-icon-test2',text:'我的音乐',Licon:'icon-menu'})(HeadLowCom);
 const My_carI = styled.i`
 display:inline-block;
@@ -106,6 +106,7 @@ class My extends React.Component {
         )
     }
     componentWillMount(){
+        console.log('my-------->',this.props)
         axios.get('/user/subcount').then(({data})=>{
             const  listArr = [
                 {

@@ -10,7 +10,7 @@ export const log_reg = function (fn){
     prompt(
     '手机号登录',
     '',
-    [{text:'cancle',onPress:()=>{console.log('取消登录')}},{text:(<span style={{color:'red'}}>ok</span>),onPress:(login, password)=>{loginHandler.call(this,login,password,fn)}}],
+    [{text:'取消',onPress:()=>{console.log('取消登录')}},{text:(<span style={{color:'red'}}>确定</span>),onPress:(login, password)=>{loginHandler.call(this,login,password,fn)}}],
     'login-password',
     null,
     ['请输入你的手机号', '密码请输入'],'android'
